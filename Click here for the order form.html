@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee Order Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 40px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .checkbox-group {
+            margin-bottom: 15px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #6b4f4f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #543c3c;
+        }
+        #confirmation {
+            margin-top: 15px;
+            font-weight: bold;
+            color: green;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Order Your Coffee ☕</h2>
+
+    <form onsubmit="submitOrder(event)">
+        <label>Full Name:</label>
+        <input type="text" id="name" required>
+
+        <label>Select Coffee:</label>
+        <select id="coffee">
+            <option>Espresso</option>
+            <option>Latte</option>
+            <option>Cappuccino</option>
+            <option>Iced Coffee</option>
+        </select>
+
+        <label>Size:</label>
+        <select id="size">
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
+        </select>
+
+        <label>Add-ons:</label>
+        <div class="checkbox-group">
+            <input type="checkbox" value="Extra Shot"> Extra Shot<br>
+            <input type="checkbox" value="Whipped Cream"> Whipped Cream<br>
+            <input type="checkbox" value="Caramel Syrup"> Caramel Syrup
+        </div>
+
+        <button type="submit">Place Order</button>
+    </form>
+
+    <p id="confirmation"></p>
+</div>
+
+<script>
+function submitOrder(event) {
+    event.preventDefault();
+    let name = document.getElementById("name").value;
+    let coffee = document.getElementById("coffee").value;
+    let size = document.getElementById("size").value;
+
+    document.getElementById("confirmation").innerHTML =
+        "Thank you, " + name + "! Your " + size + " " + coffee +
+        " has been successfully ordered ☕";
+}
+</script>
+
+</body>
+</html>
